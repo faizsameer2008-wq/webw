@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surprise for My Love</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f7e9e9;
+      color: #4b5563;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 1rem;
+    }
+    .gift-box { position: relative; cursor: pointer; transition: transform 0.5s ease; filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1)); animation: bounce 2s infinite; }
+    .gift-box:hover { transform: scale(1.05); }
+    .gift-box-cover { transform-origin: top; transition: transform 0.6s ease-in-out; pointer-events: none; }
+    .opened .gift-box-cover { transform: rotateX(90deg); }
+    .content-box { transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out; }
+    .background-img-page {
+      /* --- YOUR UPLOADED IMAGE ADDED HERE --- */
+      background-image: url('http://googleusercontent.com/file_content/2'); 
+      background-size: cover; 
+      background-position: center; 
+      background-attachment: fixed; 
+      color: white; 
+      position: relative;
+    }
+    @keyframes bounce {
+      0%,20%,50%,80%,100% { transform: translateY(0); }
+      40% { transform: translateY(-20px); }
+      60% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="giftBoxContainer" class="flex flex-col items-center justify-center w-full max-w-lg p-8 bg-white rounded-3xl shadow-2xl">
+    <h2 class="text-4xl font-bold mb-8 text-center text-rose-500">Ek Chhota Surprise!</h2>
+    <div id="giftBox" class="flex flex-col items-center">
+      <svg class="w-64 h-64 md:w-80 md:h-80 gift-box" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect class="fill-current text-rose-400" x="20" y="80" width="160" height="100" rx="10"/>
+        <rect class="fill-current text-rose-600" x="80" y="20" width="40" height="160" rx="5"/>
+        <rect class="fill-current text-rose-600" x="20" y="110" width="160" height="20" rx="5"/>
+        <path class="fill-current text-pink-300 gift-box-cover" d="M20 80C20 75.5817 23.5817 72 28 72H172C176.418 72 180 75.5817 180 80V100H20V80Z"/>
+        <circle class="fill-current text-pink-300 gift-box-cover" cx="100" cy="72" r="15"/>
+        <path d="M100 57L110 47H90L100 57Z" fill="white"/>
+      </svg>
+      <p class="mt-4 text-2xl font-bold text-gray-700">Click karein!</p>
+    </div>
+  </div>
+
+  <div id="surprisePage" class="hidden p-4 w-full min-h-screen background-img-page">
+    <div class="absolute inset-0 bg-black opacity-50 z-0"></div>
+    <div class="relative z-10 flex flex-col items-center p-4">
+      <h1 class="text-4xl md:text-6xl font-extrabold text-center text-white p-4 rounded-xl mb-8 shadow-lg">
+        Best wishes for my loveeee
+      </h1>
+
+      <div class="flex items-center gap-4 mb-8">
+        <button id="musicToggle" class="px-6 py-2 bg-rose-600 text-white rounded-full shadow-lg hover:bg-rose-700 transition">⏯ Music</button>
+      </div>
+
+      <div class="w-full max-w-7xl">
+        <h2 class="text-3xl font-bold text-center mb-6 text-white drop-shadow-md">Aapke Liye Kuchh Khaas...</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+            <div class="gift-box-toggle p-6 cursor-pointer flex justify-between items-center bg-pink-500 rounded-t-3xl text-white">
+              <h3 class="font-bold text-xl drop-shadow">Pehla Gift</h3>
+              <span class="text-3xl font-bold transition-transform duration-300 transform rotate-0">+</span>
+            </div>
+            <div class="p-6 transition-all duration-500 max-h-0 opacity-0 overflow-hidden content-box">
+              <p class="text-gray-700">
+                Happyyyyyyyyyyyyyyyyyy birthdayyyyyyyyyyyyyyyy myyyyyyyyyyyyyyy loveeeeeeeeeelyyyyy arshuuunwwww 🤌😭💗 aaapkooo aapki birthdayyyyyy bht bhtttt mubarakaaaa hoooo allahh talaahhh aapko humeshaa khushhhh rkheyyyy 😭💗 Allah Talah aapko humeshaaa mereee sth rkheyyyy humeshaaaa salamat rkheyyy Allah talah aapko seht or tandrustiii deyyyy jiseeyyy aaaap meriii duniyaaaa ko sukooon de sakoooo or char chand lagaa sakooooo 😭💗 Allah talahhh aapko tamamm khwahishenn puriii kreyyyy or in khwasihon ko puri krnee ka zaryaaa mujhe banayee , aapko lambi kamyabiii wali Zindagii deyy😭💗 aapko har khushhi deyy Jo AP deserve krti Jo nh krti wo bi Khushi deyy 😭💗 aapko wo wo cheez deyy jiska Apne sochaaa hwaaa jiski Aap duaa krti or Jo Jo Aapke lyee bhetreen hai wo wo deyyy or humeshaa meree sthh rkheyyyy 😭💗 kiunke aapko ptaaa hai naa aapkaa faizzzz apkeee binaaa kuchhh bi nhiiii haiii aaapke begair to rehhh hi nh sakegaaa 😭🌍💗
+              </p>
+            </div>
+          </div>
+          <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+            <div class="gift-box-toggle p-6 cursor-pointer flex justify-between items-center bg-rose-500 rounded-t-3xl text-white">
+              <h3 class="font-bold text-xl drop-shadow">Dusra Gift</h3>
+              <span class="text-3xl font-bold transition-transform duration-300 transform rotate-0">+</span>
+            </div>
+            <div class="p-6 transition-all duration-500 max-h-0 opacity-0 overflow-hidden content-box">
+              <p class="text-gray-700 mb-4">
+                Aaap hi meriii khushhi ki wajaaa hooo 😭 Aap hi meree sukooon ki wjaaaaa hooo 😭 Aap hooo to faizzzz haii ap nhi to faizzzz nhiiii aaap wo ho jisneee mujhe humeshaaaa s sambhalaaaaa haiii 😭 aap wo ho jisneee mujhe humeshaaaa wo pyaaar dyaaaa hai Jo aaj tak kisii n nhi dyaaa hogaaaa 😭💗 aaaap wo hoo jisneee mujhe jitnaa samjhaaaa haii koi nhi samajh saktaaa na samjhegaaa 😭💗aaap hi mereee jeeeeneee ki wajaaaaa hooo🥹💗 aaap hi ne me rookhi soookhi si Zindagii m aaakrrr mujheee khushhhh naseeebb bana dyaaaa jiska me jitna shukr krunn kamm haii 😭💗 Aap hooo too me huh Aap nhi tooo me nhiii sachhh m arshuuunwwww thankkkkkk youuuuuuuuuu thankkkkkk youuuuuuuuuu thankkkkkk youuuuuuuuuu sooo muchhhhhh mujheeyy humeshaaaa apni Zindagii m top p rkhneee k lyeee humeshaaa bin mangeyyy pyaaar deneee k lyeee binn mangeyyy humesha Apne aluuuu ko samajhne k lyeee or laaad s samjhaneee k lyeeeeee 🫠🫀🦋💗
+              </p>
+              <p class="text-gray-700">
+                humeshaaa meriiiii chotiiii mamaaaa bannn k fikrrrr krneeee k lyeeeee humeshaaa Meri bachon Jesi harkatein Pyaar s sehneee k lyeeeee 🙌😭🌍🦋💗 humeshaaa mujhe APNA gudd boy babaaa k treat krneee k lyee Mera kabhi nhi sth chorne k lyeeee humeshaaa mujhe Apne sth sthh rkhneee k lyeeee 🤌 😁 💗 🫂 mujhe humeshaaaa luckkyyyy feeeel krwanee k lyeeee🦋🫂😭💗 mereee lyeee har qurbani deneee k lyeeeeee 🫠 🫀 🦋 🫂 mereee hurt krneee p bi mujheeyy Pyaar s samjhanee k lyeee Mera gussa bardsht krnee k lyee mujhee kbhi nh thaa k mujhe koi shaks itna luckyyyyy bana degaaaa 😭💗 me jitna deserve nh krtaa tha usee kayiii zyadaaa luckyyy banane k lyeeeee 🙌 😭 🌍 thankkkk youuuu ywwwwwwr 😭💗
+              </p>
+            </div>
+          </div>
+          <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+            <div class="gift-box-toggle p-6 cursor-pointer flex justify-between items-center bg-red-500 rounded-t-3xl text-white">
+              <h3 class="font-bold text-xl drop-shadow">Teesra Gift</h3>
+              <span class="text-3xl font-bold transition-transform duration-300 transform rotate-0">+</span>
+            </div>
+            <div class="p-6 transition-all duration-500 max-h-0 opacity-0 overflow-hidden content-box">
+              <p class="text-gray-700 mb-4">
+                Me humeshaaaa aapkaaaa thaaa , aapkaa huu or aapkaa rhungaaa😭🙌🌍 me humesha Apke sth thaaa , huuu or rhungaaa humeshaaa 😭🌍🫂 aaapp hi merii duniyaaaaaa hooo 😭 Aap hi Meri Zindagi ka sukoon hoooo 😭🫂 aaaap hiii meree jigaddd ka tukraaaaaa hoooo samjhiii 😭🌍🫂💗  me apkeee lyee backbone ban k humesha khara huu mene humesha apni pyaaari shi jonuuuuu ka sthhh denaaaa hai humeshaa support krnaaa hai humeshaaaa apni betuuuuu banann k rkhnaa haiii 😭🌍💗
+              </p>
+              <p class="text-gray-700 mb-4">
+                o or tension nhi looooooo meneee humeshaaa apkooo hi tanggg krnaaaa hai humeshaaaa aapko hi periashan krnaaa hai humeshaaaa aapkeyyy sthhh hi beshrmi krni hai real m bi or message m biii 🌚😭🌍💗
+              </p>
+              <p class="text-gray-700">
+                kuchh derrr chor saktaaaa hu Kuch derrr narazzz ho saktaaa hu lekinn krunhaaa to Aapkeee sthhh hiii sab kuchhh islyeee perishannn nh honaaa kabhi aapseyy Dil kharab nh hogaaa narazz hungaa wo bi Aapke Pyaar s manane p man jaungaaa 🌚😭🌍💗
+              </p>
+            </div>
+          </div>
+          <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+            <div class="gift-box-toggle p-6 cursor-pointer flex justify-between items-center bg-purple-500 rounded-t-3xl text-white">
+              <h3 class="font-bold text-xl drop-shadow">Chautha Gift</h3>
+              <span class="text-3xl font-bold transition-transform duration-300 transform rotate-0">+</span>
+            </div>
+            <div class="p-6 transition-all duration-500 max-h-0 opacity-0 overflow-hidden content-box">
+              <p class="text-gray-700">
+                Or sorrrrrrrrrrryyyyyyy sorrrrrrrrrrryyyyyyy sorrrrrrrrrrryyyyyyy sorrrrrrrrrrryyyyyyy sorrrrrrrrrrryyyyyyy bhtt zyadaaa sorrrrrrrrrrryyyyyyy uskee lyeeee Jo me aapko hurt krdetaaaa hhuu aapse achaa behave nh krtaaa huuu gussaaa krdetaaaa huuu samajhtaaa nhiii huuuu 🥲🙂 lekimnn m real m Aapke lyee itna buraaa nh huuu aapko mujhsee zyada koi Pyaar nh kr saktaa Baz jazbatii hojataa hu. Sorrrrrrrrrrryyyyyyy 😭😭 I lovvvvvvvvvvvvvvvvvvvv youuuuuuuuuu ywwwwrr meriii chotiiiiiii siii nannniiii siii laaaadlii siii pyaaari siii nannniii siiii munnni sii betuuuuu siii gandhuriiiiiii siii pretty siii geliiiiii sii mastaniiii siii januuuuhh 🦋🫀🥹🫶🌍💗🫂 ummmmmmmmmmmmmmmuaaaahhhhhhhh ummmmmuahhh ummmmmuahhh 💋💋💋😭🥹😁💗Aik or dafaaaaaa happpyyyy birthday meriiii babyyyyyyy januuuu 😭😁💗 important message : ~aaapp kuchhh bi krlooooo lekinn rhogiiii meriii duniyaaaaaa hi samjhiiii 😭😁💗~
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 w-full max-w-4xl bg-white p-4 rounded-3xl shadow-2xl">
+        <h2 class="text-3xl font-bold text-center mb-6 text-gray-800">Aapke Liye Ek Video</h2>
+        <div class="relative w-full overflow-hidden rounded-2xl" style="padding-top: 56.25%;">
+          <video id="videoPlayer" class="absolute top-0 left-0 w-full h-full" controls>
+            <source src="http://googleusercontent.com/file_content/1" type="video/mp4">
+            Aapka browser video tag support nahi karta.
+          </video>
+        </div>
+      </div>
+
+      <div class="mt-8 w-full max-w-4xl bg-white p-4 rounded-3xl shadow-2xl">
+        <h2 class="text-3xl font-bold text-center mb-6 text-gray-800">Background Image</h2>
+        <p class="text-center text-gray-500">Aapki pasand ki image background mein set kar di gayi hai!</p>
+      </div>
+    </div>
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="http://googleusercontent.com/file_content/3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const giftBox = document.getElementById('giftBox');
+    const giftBoxContainer = document.getElementById('giftBoxContainer');
+    const surprisePage = document.getElementById('surprisePage');
+    const paragraphToggles = document.querySelectorAll('.gift-box-toggle');
+    const bgMusic = document.getElementById('bgMusic');
+    const musicToggle = document.getElementById('musicToggle');
+
+    // Gift box open
+    giftBox.addEventListener('click', () => {
+      giftBox.classList.add('opened');
+      setTimeout(() => {
+        giftBoxContainer.classList.add('hidden');
+        surprisePage.classList.remove('hidden');
+        // Confetti
+        confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
+        // Play music
+        bgMusic.play().catch(error => {
+          // Note: Browsers may block music autoplay until the user interacts.
+          console.log("Autoplay failed:", error);
+        });
+      }, 600);
+    });
+
+    // Paragraph toggles
+    paragraphToggles.forEach(box => {
+      box.addEventListener('click', () => {
+        const content = box.nextElementSibling;
+        const icon = box.querySelector('span');
+        if (content.style.maxHeight !== '0px' && content.style.maxHeight !== '') {
+          content.style.maxHeight = '0px'; content.style.opacity = '0'; icon.style.transform = 'rotate(0deg)';
+        } else {
+          // Close all other open boxes
+          document.querySelectorAll('.content-box').forEach(c => {
+            c.style.maxHeight = '0px'; c.style.opacity = '0'; c.previousElementSibling.querySelector('span').style.transform = 'rotate(0deg)';
+          });
+          // Open the clicked box
+          content.style.maxHeight = content.scrollHeight + 'px';
+          content.style.opacity = '1';
+          icon.style.transform = 'rotate(45deg)';
+        }
+      });
+    });
+
+    // Music toggle
+    musicToggle.addEventListener('click', () => {
+      if (bgMusic.paused) { 
+        bgMusic.play().catch(error => console.log("Manual play failed:", error));
+        musicToggle.textContent = '⏸ Music';
+      } else { 
+        bgMusic.pause();
+        musicToggle.textContent = '▶ Music';
+      }
+    });
+
+    // Update music toggle button text on play/pause events
+    bgMusic.onplay = () => musicToggle.textContent = '⏸ Music';
+    bgMusic.onpause = () => musicToggle.textContent = '▶ Music';
+  </script>
+</body>
+</html>
